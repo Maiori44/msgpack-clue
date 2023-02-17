@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a Clue implementation for encoding/decoding [MessagePac](https://msgpack.org).
+This is a Clue implementation for encoding/decoding [MessagePack](https://msgpack.org).
 
 Features:
 - can distinguish between integer / float / double numbers
@@ -13,7 +13,7 @@ Features:
 Compatible Lua versions:
 - Lua 5.4
 - Lua 5.3
-- LuaJIT (Love2D's only, will distinguish numbers slightly differently)
+- LuaJIT (Love2D's only), **NOTE:** X.0 floats will be treated as integers instead of floats
 
 What's missing:
 - extendend types ```fixent```
