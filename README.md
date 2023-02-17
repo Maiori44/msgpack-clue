@@ -5,11 +5,15 @@
 This is a Clue implementation for encoding/decoding [MessagePac](https://msgpack.org).
 
 Features:
-- can compile to either LuaJIT (Love2D's only), Lua5.3 or Lua5.4
 - can distinguish between integer / float / double numbers
 - can distinguish between UTF-8 strings and binary data
 - [public domain license](http://unlicense.org)
 - pretty fast decoding
+
+Compatible Lua versions:
+- Lua 5.4
+- Lua 5.3
+- LuaJIT (Love2D's only, will distinguish numbers slightly differently)
 
 What's missing:
 - extendend types ```fixent```
