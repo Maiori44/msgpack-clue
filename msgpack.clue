@@ -177,6 +177,9 @@ local encoder_functions = {
 			}
 		}
 	},
+	["function"] = fn {
+		return ""
+	}
 }
 
 encode_value = fn(value) {
@@ -332,7 +335,7 @@ decode_value = fn(data, position) {
 //INTERFACE
 return {
 	_AUTHOR = "Felice D'Angelo <https://github.com/Maiori44>",
-	_VERSION = "0.2.0",
+	_VERSION = "0.2.1",
 
 	//primary encode function
 	encode = fn(...) {
