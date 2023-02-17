@@ -2,13 +2,13 @@
 
 ## Overview
 
-This is a Clue implementation for encoding/decoding MessagePack (https://msgpack.org).
+This is a Clue implementation for encoding/decoding [MessagePac](https://msgpack.org).
 
 Features:
-- can compile to either LuaJIT (requires external utf8 library), Lua5.3 or Lua5.4
+- can compile to either LuaJIT (Love2D's only), Lua5.3 or Lua5.4
 - can distinguish between integer / float / double numbers
 - can distinguish between UTF-8 strings and binary data
-- public domain license (http://unlicense.org)
+- [public domain license](http://unlicense.org)
 - pretty fast decoding
 
 What's missing:

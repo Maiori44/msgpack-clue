@@ -3,6 +3,12 @@
 		MessagePack Tests
 
 --]]----------------------------------------------------------------------------
+if love then
+	love.errorhandler = function(msg)
+		print((debug.traceback("Error: " .. tostring(msg), 3):gsub("\n[^\n]+$", "")))
+	end
+end
+
 local msgpack = require('msgpack')
 
 -- do very quick encode / decode tests
@@ -164,7 +170,7 @@ local function test_double(value)
 	assert(decoded == value)
 end
 
-test_float(1.0)
+test_float(love and 1.5 or 1.0) --LuaJIT cannot figure out 1.0 is a float
 test_float(2.5)
 test_double(math.pi)
 
@@ -292,3 +298,7 @@ test_bin8(string.rep(string.char(255), 255))
 test_bin16(string.rep(string.char(255), 256))
 test_bin16(string.rep(string.char(255), 65535))
 test_bin32(string.rep(string.char(255), 65536))
+
+if love then
+	love.event.quit()
+end

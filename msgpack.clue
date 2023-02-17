@@ -32,12 +32,30 @@
 */
 
 @iflua jit {
-	@error "Unfinished!"
+	local fn pack(...) {
+		return love.data.pack("string", ...)
+	}
+	local fn unpack(...) {
+		return love.data.unpack(...)
+	}
+	local fn mtype(x) {
+		if type(x) != "number" {
+			return
+		} elseif x == math.floor(x) {
+			return "integer"
+		} else {
+			return "float"
+		}
+	}
+	local utf8len = require("utf8").len
+	local tconcat, tunpack = table.concat, _G.unpack
+	local ssub = string.sub
+	local type, pcall, pairs, select = type, pcall, pairs, select
 } @else {
 	@if all(not(lua(5.4)), not(lua(5.3))) {
 		@print "Warning: Lua version not specified, defaulting to Lua5.4"
 	}
-	local pack, unpack = string.pack, string.unpack
+	local {pack, unpack} = string
 	local mtype, utf8len = math.type, utf8.len
 	local tconcat, tunpack = table.concat, table.unpack
 	local ssub = string.sub
@@ -314,7 +332,7 @@ decode_value = fn(data, position) {
 //INTERFACE
 return {
 	_AUTHOR = "Felice D'Angelo <https://github.com/Maiori44>",
-	_VERSION = "0.1.0",
+	_VERSION = "0.2.0",
 
 	//primary encode function
 	encode = fn(...) {
