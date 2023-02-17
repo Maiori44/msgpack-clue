@@ -163,8 +163,10 @@ local encoder_functions = {
 		} else { //encode as a map
 			local elements = {}
 			for k, v of value {
-				elements[#elements + 1] = encode_value(k)
-				elements[#elements + 1] = encode_value(v)
+				if type(v) != "function" {
+					elements[#elements + 1] = encode_value(k)
+					elements[#elements + 1] = encode_value(v)
+				}
 			}
 
 			local length = #elements /_ 2
@@ -178,7 +180,7 @@ local encoder_functions = {
 		}
 	},
 	["function"] = fn {
-		return ""
+		return pack("B", 0xc0)
 	}
 }
 

@@ -38,6 +38,8 @@ There is also a check if a number can be lossless encoded as a 32-bit float.
 
 > **NOTE:** Empty tables will be encoded as empty arrays!
 
+> **NOTE:** Functions inside non-array tables will be ignored, otherwise they will be converted to nil!
+
 ### msgpack.encode(...)
 Encodes all given values to a binary MessagePack representation. It will return the binary string or ```nil``` plus an error message if it fails.
 
